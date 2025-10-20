@@ -9,8 +9,9 @@ shopt -s dotglob
 shopt -s extglob
 shopt -s globstar
 
-for file in './home'/**/*; do
+for file in "$DOTFILES_DIR/home"/**/*; do
     echo "Copying ${file}"
-    cp $file ~/
+    ln -f $file ~/
 done
 
+echo "Reloading bashrc"
