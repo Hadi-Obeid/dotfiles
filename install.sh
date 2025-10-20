@@ -3,10 +3,14 @@
 
 DOTFILES_DIR=~/dotfiles
 
-echo 'Copying bashrc'
+echo "Installing dotfiles"
 
-# Install bashrc
-cp $DOTFILES_DIR/.bashrc ~/.bashrc
+shopt -s dotglob
+shopt -s extglob
+shopt -s globstar
 
-# Reload bashrc
-source ~/.bashrc
+for file in './home'/**/*; do
+    echo "Copying ${file}"
+    cp $file ~/
+done
+
